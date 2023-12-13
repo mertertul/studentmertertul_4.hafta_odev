@@ -1,0 +1,67 @@
+ 
+ <!DOCTYPE html>
+ <html lang="tr">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="./Css KODLARIM OGRENCİ.css">
+     
+ </head>
+ <body>
+ 
+ <div class="container" id="DUNYAFORESTContainer">     
+     <!--orman -->
+     <div class="gallery" id="forestGallery">
+         <!--resimler klasörü -->
+     </div>
+ </div>
+ 
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="script.js"></script>
+ 
+ <script>
+ document.addEventListener("DOMContentLoaded", function () {
+     addForestImages();
+ });
+ 
+ function addForestImages() {
+     var imageContainer = document.getElementById("forestGallery");
+ 
+     for (var i = 0; i < 15; i++) {
+         var img = document.createElement("img");
+         img.src = "https://source.unsplash.com/random/300x300/?forest";
+         img.alt = "Orman Resim " + (i + 1);
+         img.className = "img-fluid";
+ 
+         // Yeni bir resme tıklandığında yeni bir forest görseli eklenmesi
+         img.addEventListener("click", function () {
+             addSingleForestImage();
+         });
+ 
+         imageContainer.appendChild(img);
+     }
+ }
+ 
+ function addSingleForestImage() {
+     var imageContainer = document.getElementById("forestGallery");
+ 
+     var img = document.createElement("img");
+     img.src = "https://source.unsplash.com/random/300x300/?forest";
+     img.alt = "Orman Resim " + (imageContainer.childElementCount + 1);
+     img.className = "img-fluid";
+ 
+     // Yeni bir resme tıklandığında yeni bir forest görseli eklenmesi
+     img.addEventListener("click", function () {
+         addSingleForestImage();
+     });
+ 
+     imageContainer.appendChild(img);
+ }
+ </script>
+ 
+ </body>
+ </html>
+ 
